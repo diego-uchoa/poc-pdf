@@ -19,6 +19,7 @@ RUN dnf -y update \
 # update permissions
 RUN  chgrp -R 0 /app /src && chmod -R g+rwx /app /src
 #RUN find / -iname IronCefSubprocess
-#RUN chmod +rwx /app/publish/runtimes/linux-x64/native/IronCefSubprocess
+RUN chmod +rwx /app/publish/runtimes/linux-x64/native/IronCefSubprocess
 # run app
+USER 1001
 ENTRYPOINT ["dotnet", "resultado-pdf.dll"]
